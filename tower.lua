@@ -110,20 +110,20 @@ function Tower.draw_shape(clstype, x, y, radius, upgrade, is_valid, selected)
         if is_valid then
             if selected then
                 love.graphics.setColor(0, 160, 0, 150)
-                love.graphics.circle("line", x, y, radius, 80)  
+                love.graphics.circle("line", x, y, radius, 80)
                 love.graphics.setColor(0, 160, 0, 20)
-                love.graphics.circle("fill", x, y, radius, 80) 
+                love.graphics.circle("fill", x, y, radius, 80)
             else
                 -- love.graphics.setColor(0, 127, 255, 70)
-                -- love.graphics.circle("line", x, y, radius, 80)  
+                -- love.graphics.circle("line", x, y, radius, 80)
                 -- love.graphics.setColor(0, 127, 255, 10)
-                -- love.graphics.circle("fill", x, y, radius, 80)  
+                -- love.graphics.circle("fill", x, y, radius, 80)
             end
         else
             love.graphics.setColor(255, 50, 0, 150)
-            love.graphics.circle("line", x, y, radius, 80)  
+            love.graphics.circle("line", x, y, radius, 80)
             love.graphics.setColor(255, 50, 0, 20)
-            love.graphics.circle("fill", x, y, radius, 80)  
+            love.graphics.circle("fill", x, y, radius, 80)
         end
     end
 end
@@ -172,7 +172,7 @@ function Tower:update(dt)
             mix_factor = 1.0
             self.direction = self.direction * (1.0 - mix_factor) + wanted_direction * mix_factor
             self.target = new_target
-            
+
             if time_diff > self.shoot_frequency then
                 self:shoot_projectile()
                 self.last_shoot_time = love.timer.getTime()

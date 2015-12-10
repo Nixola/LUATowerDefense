@@ -40,7 +40,7 @@ function DirectedProjectile:update(dt)
     local velocity = direction / dist * 500.0 * self.speed * dt
 
     if velocity:len() > dist then
-        velocity = velocity * (dist / velocity:len()) 
+        velocity = velocity * (dist / velocity:len())
     end
 
     self.pos = self.pos + velocity
@@ -51,7 +51,7 @@ end
 function DirectedProjectile:draw()
     if(self.laserProjectile) then
         local target_pos = self.target:get_pos()
-        
+
 
         if not self.lineProjectile then
             local direction = target_pos - self.pos

@@ -1,5 +1,5 @@
 
--- From: 
+-- From:
 -- https://gist.github.com/johannesgijsbers/880372fc8800e5d5f3e4
 
 Vector = {}

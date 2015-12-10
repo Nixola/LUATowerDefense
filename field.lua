@@ -61,21 +61,21 @@ function draw_field()
             local draw_rect = true
 
             if obj == 1 or obj == 2 then
-                
+
                 -- Start
                 love.graphics.setColor(20, 20, 20, 255)
                 if x == start_pos.x and y == start_pos.y then
                     love.graphics.print("START", offs.x + 4, offs.y + 20)
-                
+
                 -- Ziel
                 elseif obj == 2 then
                     love.graphics.print("END", offs.x + 10, offs.y + 20)
                 end
-            
+
                 -- Strecke
                 love.graphics.setColor(0, 0, 0, 100)
 
-            
+
             elseif obj == 0 then
                 -- Leer
                 love.graphics.setColor(0, 0, 0, 20)
@@ -84,7 +84,7 @@ function draw_field()
 
             if draw_rect then
                 love.graphics.rectangle("fill", offs.x, offs.y, field_size.x, field_size.y)
-                
+
                 if((game_field[y][x]==1 or game_field[y][x]==2) and x>0 and y>0 and x<=field_width and y<=field_height) then
                     local bitmask = 0
                     if(x<field_width and game_field[y][x+1] == 1) then bitmask = bitmask + 1 end
@@ -92,7 +92,7 @@ function draw_field()
                     if(x>1 and game_field[y][x-1] == 1) then bitmask = bitmask + 4 end
                     if(y>1 and game_field[y-1][x] == 1) then bitmask = bitmask + 8 end
 
-                    love.graphics.setColor(0,0,0)                    
+                    love.graphics.setColor(0,0,0)
                     if(bitmask == 5) then -- ==
                         love.graphics.line(offs.x, offs.y, offs.x+field_size.x, offs.y)
                         love.graphics.line(offs.x, offs.y+field_size.y, offs.x+field_size.x, offs.y+field_size.y)
@@ -131,7 +131,7 @@ function draw_field()
                     if(bitmask == 9) then
                         love.graphics.line(offs.x, offs.y+field_size.y, offs.x+field_size.x, offs.y+field_size.y)
                         love.graphics.line(offs.x, offs.y, offs.x, offs.y+field_size.y)
-                        
+
                         love.graphics.setColor(255, 255, 255, 255)
                         love.graphics.draw(floor_9, offs.x, offs.y, 0, 50/64, 50/64)
                     end
@@ -140,7 +140,7 @@ function draw_field()
 
             end
         end
-    end 
+    end
 end
 
 

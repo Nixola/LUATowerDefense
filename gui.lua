@@ -26,7 +26,7 @@ function is_btn_hovered(btn)
 end
 
 function render_button(btn, disabled)
-        
+
     local color = {60, 60, 60, 255}
     local hovered = is_btn_hovered(btn)
 
@@ -67,7 +67,7 @@ function render_button(btn, disabled)
             img = btn.alt_img
         else
             -- Load image only once
-            if type(btn.img) == "string" then 
+            if type(btn.img) == "string" then
                 btn.img = love.graphics.newImage(btn.img)
             end
             img = btn.img
@@ -329,7 +329,7 @@ function draw_gui()
         love.graphics.print(selected_tower.name, upgrade_pos.x + 10, upgrade_pos.y + 10)
         love.graphics.setFont(font)
         love.graphics.setColor(20, 20, 20, 190)
-        
+
 
         local line = 0
 
@@ -343,12 +343,12 @@ function draw_gui()
 
         line = line + 1
         love.graphics.print("Radius: " .. (selected_tower.radius), upgrade_pos.x + 10, upgrade_pos.y + 50 + 20 * line)
-        
+
         if magic then
             love.graphics.print("DPS/100$: " .. math.floor(dps / selected_tower.money_spent_on * 100.0 * 10.0) / 10.0, upgrade_pos.x + 150, upgrade_pos.y + 50 + 20 * line)
-        end 
+        end
         line = line + 1
-        
+
         if selected_tower.damage > 0 then
             love.graphics.print("Damage: " .. (selected_tower.damage), upgrade_pos.x + 10, upgrade_pos.y + 50 + 20 * line)
 
@@ -368,7 +368,7 @@ function draw_gui()
 
         love.graphics.print("Kills: " .. (selected_tower.kill_count), upgrade_pos.x + 150, upgrade_pos.y + 50 + 20 * line)
         line = line + 1
-        
+
 
 
         local cost = selected_tower:get_upgrade_cost()
@@ -378,7 +378,7 @@ function draw_gui()
                 love.graphics.setColor(0, 100, 0, 255)
                 love.graphics.print("Cost: " .. cost .. "$", 850, 730)
             if not selected_tower:can_upgrade() then
-                
+
                 love.graphics.setColor(0, 0, 100, 255)
                 love.graphics.print("No further upgrades!", 850, 750)
             else
@@ -386,12 +386,12 @@ function draw_gui()
             end
         else
             love.graphics.setColor(255, 20, 20, 255)
-            love.graphics.print("Cost: " .. cost .. "$", 850, 730)  
-            love.graphics.print("Can't afford upgrade!", 850, 750)  
+            love.graphics.print("Cost: " .. cost .. "$", 850, 730)
+            love.graphics.print("Can't afford upgrade!", 850, 750)
 
         end
-            
-        -- Focus mode 
+
+        -- Focus mode
         if selected_tower.single_target then
             love.graphics.setColor(30, 30, 30, 255)
             love.graphics.print("Focus mode: ", 350, 735)

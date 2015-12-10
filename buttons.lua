@@ -1,7 +1,7 @@
 
 btn_cheat = {
-    ["text"] = "Cheat", 
-    ["pos"] = Vector(gui_pos.x, 830), 
+    ["text"] = "Cheat",
+    ["pos"] = Vector(gui_pos.x, 830),
     ["size"] = Vector(150, 40)
 }
 
@@ -29,7 +29,7 @@ btn_start_wave_new = {
 
 btn_fast_forward_new = {
     ["pos"] = Vector(gui_pos.x + 80, 550),
-    ["size"] = Vector(64, 64), 
+    ["size"] = Vector(64, 64),
     ["img"] = "res/fast_forward.png",
     ["alt_img"] = "res/normal_speed.png",
     ["use_alt_img"] = false

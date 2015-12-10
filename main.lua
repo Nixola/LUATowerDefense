@@ -82,7 +82,7 @@ function love.update(dt)
     mouse = Vector(love.mouse.getX(), love.mouse.getY())
 
 
-    if simulation_running then 
+    if simulation_running then
         local any_entities_left = false
         local diff = (love.timer.getTime() - last_entity_spawned) * time_factor
 
@@ -106,7 +106,7 @@ function love.update(dt)
                     entity.destroyed = true
                     table.remove(entities, i)
                     player_lifes = player_lifes - 1
-                end 
+                end
             end
         end
 
@@ -123,7 +123,7 @@ function love.update(dt)
             local tower = towers[i]
             tower:update(dt * time_factor)
         end
-        
+
         -- Evt. wave stoppen
         if any_entities_left == false and #entity_queue == 0 then
             stop_wave()
@@ -134,7 +134,7 @@ function love.update(dt)
             local tower = towers[i]
             tower:update_idle(dt * time_factor)
         end
-        
+
 
 
     end

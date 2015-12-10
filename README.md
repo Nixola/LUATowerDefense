@@ -26,7 +26,7 @@ git clone --depth=1
 Someone made a video about our game! :D (video by Open Source Games)
 <br />
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=WL6eG0H66cA
-" target="_blank"><img src="http://img.youtube.com/vi/WL6eG0H66cA/0.jpg" 
+" target="_blank"><img src="http://img.youtube.com/vi/WL6eG0H66cA/0.jpg"
 alt="No video herre ? oO" width="420" height="315" border="10" /></a>
 
 ## Requirements

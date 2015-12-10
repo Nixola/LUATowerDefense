@@ -4,10 +4,10 @@
 
 ---============================================================
 -- add comma to separate thousands
--- 
+--
 function comma_value(amount)
   local formatted = amount
-  while true do  
+  while true do
     formatted, k = string.gsub(formatted, "^(-?%d+)(%d%d%d)", '%1,%2')
     if (k==0) then
       break
@@ -53,15 +53,15 @@ function format_num(amount, decimal, prefix, neg_prefix)
                 string.rep("0", decimal - string.len(remain))
   end
 
-        -- attach prefix string e.g '$' 
-  formatted = (prefix or "") .. formatted 
+        -- attach prefix string e.g '$'
+  formatted = (prefix or "") .. formatted
 
         -- if value is negative then format accordingly
   if (amount<0) then
     if (neg_prefix=="()") then
       formatted = "("..formatted ..")"
     else
-      formatted = neg_prefix .. formatted 
+      formatted = neg_prefix .. formatted
     end
   end
 
