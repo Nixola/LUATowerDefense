@@ -369,26 +369,24 @@ function draw_gui()
         love.graphics.print("Kills: " .. (selected_tower.kill_count), upgrade_pos.x + 150, upgrade_pos.y + 50 + 20 * line)
         line = line + 1
 
+        if selected_tower:can_upgrade() then
 
+            local cost = selected_tower:get_upgrade_cost()
 
-        local cost = selected_tower:get_upgrade_cost()
-
-        -- Upgrade button
-        if cost <= player_money then
+            -- Upgrade button
+            if cost <= player_money then
                 love.graphics.setColor(0, 100, 0, 255)
                 love.graphics.print("Cost: " .. cost .. "$", 850, 730)
-            if not selected_tower:can_upgrade() then
-
-                love.graphics.setColor(0, 0, 100, 255)
-                love.graphics.print("No further upgrades!", 850, 750)
-            else
                 render_button(btn_upgrade)
+            else
+                love.graphics.setColor(255, 20, 20, 255)
+                love.graphics.print("Cost: " .. cost .. "$", 850, 730)
+                love.graphics.print("Can't afford upgrade!", 850, 750)
             end
-        else
-            love.graphics.setColor(255, 20, 20, 255)
-            love.graphics.print("Cost: " .. cost .. "$", 850, 730)
-            love.graphics.print("Can't afford upgrade!", 850, 750)
 
+        else
+            love.graphics.setColor(0, 0, 100, 255)
+            love.graphics.print("No further upgrades!", 850, 750)
         end
 
         -- Focus mode
