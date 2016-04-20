@@ -20,6 +20,19 @@ function criteria_strongest(pos, entity)
     return entity.hp
 end
 
+criteria = {}
+
+for i, v in ipairs(love.filesystem.getDirectoryItems("criteria")) do
+    local res, a1, a2 = pcall(dofile, "criteria/" .. v)
+    if res then
+        criteria[a1] = a2
+        tower_modes[#tower_modes + 1] = a1
+        btn_tower_modes_gen()
+    else
+        print("Error loading criteria/" .. v .. ":", a1)
+    end
+end
+
 
 
 -- Modes:
@@ -42,6 +55,8 @@ function closest_entity(pos, max_radius, mode)
         criteria_fnc = criteria_closest
     elseif mode == "Strongest" then
         criteria_fnc = criteria_strongest
+    elseif criteria[mode] then
+        criteria_fnc = criteria[mode]
     else
         print("INVALID MODE: " .. mode)
     end        
