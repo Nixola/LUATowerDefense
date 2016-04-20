@@ -5,17 +5,17 @@ require "number_format"
 require "globals"
 require "field"
 require "entity"
-require "directed_projectile"
-require "line_projectile"
-require "freeze_projectile"
+require "bullets.directed"
+require "bullets.line"
+require "bullets.freeze"
 require "entities"
-require "tower"
+require "towers.standard"
 require "gui"
 require "buttons"
 require "sound"
-require "laser_tower"
-require "freeze_tower"
-require "sniper_tower"
+require "towers.laser"
+require "towers.freeze"
+require "towers.sniper"
 
 
 tower_types = {
@@ -43,9 +43,12 @@ end
 
 
 function love.mousepressed(x, y, button)
-    if button == "l" then
+    if button == 1 then
         check_button_actions()
         on_gui_click(x, y)
+    elseif button == 2 then
+    	tower_under_cursor = nil
+    	selected_tower = nil
     end
 end
 
