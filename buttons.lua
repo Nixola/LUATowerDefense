@@ -39,18 +39,22 @@ tower_modes = {"First", "Last", "Closest", "Strongest"}
 
 btn_tower_modes = {}
 
-for i = 1, #tower_modes do
+btn_tower_modes_gen = function ( ... )
+    for i = 1, #tower_modes do
 
-    local offsetX = (i-1)%6
-    local offsetY = (math.floor(i/7) == 1) and 34 or 0
+        local offsetX = (i-1)%6
+        local offsetY = (math.floor(i/7) == 1) and 34 or 0
 
-    local btn = {
-        ["text"] = tower_modes[i],
-        ["mode"] = tower_modes[i],
-        ["pos"] = Vector(350 + offsetX * 80, 750 + offsetY),
-        ["size"] = Vector(75, 28)
-    }
+        local btn = {
+            ["text"] = tower_modes[i],
+            ["mode"] = tower_modes[i],
+            ["pos"] = Vector(350 + offsetX * 80, 750 + offsetY),
+            ["size"] = Vector(75, 28)
+        }
 
-    table.insert(btn_tower_modes, btn)
+        table.insert(btn_tower_modes, btn)
 
+    end
 end
+
+btn_tower_modes_gen()
